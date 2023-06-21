@@ -8,11 +8,10 @@ pipeline {
     //     git 'https://github.com/Thengchhoung-Tang/SimplePython.git'
     //   }
     // }
-    agent any
 
     tools {
         // Specify the configured Git installation
-        git 'Thengchhoung-Tang'
+        git 'git'
     }
 
     stage('Build Docker Image') {
