@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Code checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-cred', url: 'https://github.com/Thengchhoung-Tang/SimplePython.git']]])                   
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/Thengchhoung-Tang/SimplePython.git']]])                   
             }
         }
         
@@ -33,20 +33,20 @@ pipeline {
         //         }
         //     }
         // }
-        stage('stop previous containers') {
-            steps {
-                sh 'docker ps -f name=simplepython -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -fname=simplepython -q | xargs -r docker container rm'
-            }
-        }
+        // stage('stop previous containers') {
+        //     steps {
+        //         sh 'docker ps -f name=myphpcontainer -q | xargs --no-run-if-empty docker container stop'
+        //         sh 'docker container ls -a -fname=myphpcontainer -q | xargs -r docker container rm'
+        //     }
+        // }
         
-        stage('Docker Run') {
-            steps {
-                script {
-                    sh 'docker run -d -p 80:80 --rm --name simplepython ${imageName}:latest'
-                }
-            }
-        }   
+        // stage('Docker Run') {
+        //     steps {
+        //         script {
+        //             sh 'docker run -d -p 80:80 --rm --name myphpcontainer ${registry}/${imageName}:latest'
+        //         }
+        //     }
+        // }   
     
     }
 }
