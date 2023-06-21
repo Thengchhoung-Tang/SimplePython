@@ -9,11 +9,6 @@ pipeline {
     //   }
     // }
 
-    tools {
-        // Specify the configured Git installation
-        git 'git'
-    }
-
     stage('Build Docker Image') {
       steps {
         // Build Docker image
