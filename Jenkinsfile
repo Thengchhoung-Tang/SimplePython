@@ -2,12 +2,12 @@ pipeline {
   agent any
 
   stages {
-    stage('Checkout') {
-      steps {
-        // Checkout code from Git repository
-        git 'https://github.com/Thengchhoung-Tang/SimplePython.git'
-      }
-    }
+    // stage('Checkout') {
+    //   steps {
+    //     // Checkout code from Git repository
+    //     git 'https://github.com/Thengchhoung-Tang/SimplePython.git'
+    //   }
+    // }
 
     stage('Build Docker Image') {
       steps {
